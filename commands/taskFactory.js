@@ -1,6 +1,7 @@
 const ITask = require('./task');
 const AddTask = require('./add');
 const ListTask = require('./list');
+const DeleteTask = require('./delete');
 
 class TaskFactory {
     static createTaskClass(type){
@@ -8,6 +9,8 @@ class TaskFactory {
             return AddTask;
         } else if ('list' == type){
             return ListTask;
+        } else if ('delete' == type){
+            return DeleteTask;
         }
         return null;
     }
