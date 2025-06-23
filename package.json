@@ -1,0 +1,10 @@
+{
+  "name": "task-cli",
+  "version": "1.0.0",
+  "bin": {
+    "task-cli": "bin/task-cli.js"
+  },
+  "dependencies": {
+    "yargs": "^17.0.0"
+  }
+}
