@@ -1,18 +1,28 @@
 const ITask = require('./task');
 const ProcessTask = require('./../utils/processTask');
+const storageData = require('../storage/storage');
 
 class UpdateTask extends ITask {
     execute(argv){
-        let conditionOfList;
+        console.log(argv);
         if (argv.length != 3){
             throw new Error('Command error: Update task argument not valid');
         }
         const tasks = ProcessTask.getTask();
-        let validTasks = filterTask(tasks, conditionOfList);
-        validTasks.forEach(task => console.log(task.description));
+        const newDescription = argv[2];
+        const idOfUpdateTask = argv[1];
+
+        for (let task of tasks){
+            if (task.id == idOfUpdateTask){
+                task.description = newDescription;
+                task.updateAt = new Date().toISOString();
+                break;
+            }
+        }
+        storageData(tasks);
     }
 }
 
 
-module.exports = ListTask;
+module.exports = UpdateTask;
 

@@ -9,10 +9,19 @@ class ProcessTask {
         tasks = JSON.parse(tasks);
         return tasks;
     }
-
-    static createTask(description){
+    
+    static createTask(description, tasks){
+        const getValidId = (tasks) => {
+            let idArray = tasks.map(currentTask => currentTask.id);
+            let id = 1;
+            while (idArray.includes(id)){
+                id++;
+            }
+            console.log(id);
+            return id;
+        }
         let newTask = {};
-        newTask.id = 1;
+        newTask.id = getValidId(tasks);
         newTask.description = description;
         newTask.status = 'to-do';
         newTask.createdAt = new Date().toISOString();

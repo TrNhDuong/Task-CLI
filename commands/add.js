@@ -8,10 +8,13 @@ class AddTask extends ITask {
             throw new Error('Command not valid, argument is more than 2 in add task');
         }
         const descriptionTask = argv[1];
-        const newTask = ProcessTask.createTask(descriptionTask);
         let taskList = ProcessTask.getTask();
+        const newTask = ProcessTask.createTask(descriptionTask, taskList);
         taskList.push(newTask);
         storageData(taskList);
+        console.log(
+            `Adding successfully task ${newTask.id} ${newTask.description} `
+        )
     }
 }
 

@@ -4,6 +4,7 @@ const ProcessTask = require('./../utils/processTask');
 class ListTask extends ITask {
     execute(argv){
         let conditionOfList;
+
         if (argv.length > 2){
             throw new Error('Command error: List task not valid');
         } else if (argv.length == 2){
@@ -14,20 +15,19 @@ class ListTask extends ITask {
         } else if (argv.length == 1){
             conditionOfList = '';
         }
-        
+
+        const filterTask = (tasks, condition) => {
+            if (condition === '') {
+                return tasks;
+            }
+            return tasks.filter(currentTask => currentTask.status === condition);
+        }
+
         const tasks = ProcessTask.getTask();
         let validTasks = filterTask(tasks, conditionOfList);
-        validTasks.forEach(task => console.log(task.id + ' ' + task.description));
+        validTasks.forEach(task => console.log(task.id + ' ' + task.description + ' status: ' + task.status));
     }
 }
-
-function filterTask(tasks, condition) {
-    if (condition === '') {
-        return tasks;
-    }
-    return tasks.filter(currentTask => currentTask.status === condition);
-}
-
 
 module.exports = ListTask;
 
