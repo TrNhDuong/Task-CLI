@@ -23,15 +23,14 @@ class TaskRepository {
         return new TaskRepository(database, mappedTasks);
     }
 
-    async create(id, description){
-        if (!id || !description){
-            throw new Error(`taskRepository.js error: Id and description mustn't undefined value`);
+    async create(newTask){
+        if (!newTask){
+            throw new Error(`taskRepository.js error: newTask mustn't undefined value`);
         }
-        const status = 'to-do';
-        const timeCreate = new Date().toISOString();
-        const updateAt = null;
-
-        return new Task(id, description, status, timeCreate, updateAt);
+        if (typeof newTask === 'Task'){
+            newTask = newTask.toObject();
+        }
+        this.mappedTasks.push(newTask);
     }
 
     async read(id){
