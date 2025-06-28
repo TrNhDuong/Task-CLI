@@ -4,11 +4,10 @@
 
 **Task Tracker** is a simple command-line application for managing your tasks. This project helps you keep track of what you need to do, what you're currently working on, and what you've already completed.
 
-It is part of the **"Backend Project"** track from [roadmap.sh](https://roadmap.sh), designed as a beginner-level project.
+It is part of the **"Backend Project"** track from [roadmap.sh](https://roadmap.sh/projects/task-tracker), designed as a beginner-level project.
 
 
 ## Features
-
 The application runs from the command line, accepts user actions and inputs as arguments, and stores tasks in a JSON file.
 
 Users can:
