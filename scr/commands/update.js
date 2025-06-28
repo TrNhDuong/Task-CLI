@@ -12,7 +12,9 @@ class UpdateTask {
         
         const newDescription = argv[2];
         const idOfUpdateTask = argv[1];
-        new UpdateTasksService(this.tasksRepository).execute(idOfUpdateTask, newDescription);
+        (async () => {
+            await new UpdateTasksService(this.tasksRepository).execute(idOfUpdateTask, newDescription);
+        })();
     }
 }
 

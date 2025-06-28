@@ -20,7 +20,10 @@ class MarkTask {
             throw new Error('Command error: Mark argument not valid')
         }
         const idOfUpdateTask = argv[1];
-        new MarkTasksService(this.tasksRepository).execute(idOfUpdateTask, newStatus);
+
+        (async () => {
+            await new MarkTasksService(this.tasksRepository).execute(idOfUpdateTask, newStatus);
+        })();
     }
 }
 

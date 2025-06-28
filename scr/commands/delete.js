@@ -9,7 +9,9 @@ class DeleteTask {
             throw new Error('Command error: argument of deleteCommand not valid');
         }
         const idOfDeleteTask = argv[1];
-        new DeleteTasksService(this.tasksRepository).execute(idOfDeleteTask);
+        (async () => {
+            await new DeleteTasksService(this.tasksRepository).execute(idOfDeleteTask);
+        })();
     }
 }
 

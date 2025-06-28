@@ -17,7 +17,9 @@ class ListTask{
         } else if (argv.length == 1){
             conditionOfList = 'to-do';
         }
-        new ListTasksService(this.tasksRepository).execute(conditionOfList);  
+        ( async () => {
+            await new ListTasksService(this.tasksRepository).execute(conditionOfList);
+        })();
     }
 }
 

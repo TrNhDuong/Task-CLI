@@ -16,7 +16,6 @@ async function cli() {
         console.log('Execution task null, invalid command')
     }
     await taskRepository.database.writeTaskData(taskRepository.mappedTasks);
-    //taskRepository.database.writeTaskData(taskRepository.mappedTasks);
 }
 
 module.exports = cli;

@@ -6,7 +6,6 @@
 
 It is part of the **"Backend Project"** track from [roadmap.sh](https://roadmap.sh), designed as a beginner-level project.
 
-### Time of Implementation: **23/06/2025 – 29/06/2025**
 
 ## Features
 
@@ -22,26 +21,51 @@ Users can:
   - **To-do** (not done)
   - **In progress**
 
+## Download
+```
+gitclone git@github.com:TrNhDuong/Task-CLI.git
+```
+
 ## Usage
 
 Below are the command examples for using the CLI tool:
 
 ### Adding a New Task
 
-#### Input
 ```bash
 task-cli add "Buy groceries"
-```
-#### Output
-```bash
-Task added successfully (ID: 1)
 ```
 
 ### Deleting a task
 
-#### Input
 ```bash
 task-cli delete 1
 ```
 with 1 is id of task
+
+### Updating a task
+
+```bash
+task-cli update 1 "Bye bye"
+```
+
+### Listing tasks
+
+```bash
+# Listing all tasks
+task-cli list
+
+# Listing tasks by status
+task-cli list to-do
+task-cli list done
+task-cli list in-progress
+```
+
+### Marking a task as in progress or done
+```bash
+task-cli mark-in-progress 1
+task-cli mark-done 1
+```
+
+
 
